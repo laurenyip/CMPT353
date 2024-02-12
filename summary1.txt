@@ -1,0 +1,8 @@
+Summary for data-6.csv:
+X Variable - Mean: 7.21615517960992, Std: 11.861841302343016, Min: -24.33382075234097, Max: 35.402138910929
+Y Variable - Mean: 7.602215028237295, Std: 11.70541274804915, Min: -22.9563569970746, Max: 36.07987403078143
+Correlation Coefficient (X, Y): [[1.         0.93506857]
+ [0.93506857 1.        ]]
+
+One sentence description: data-6.csv contains data points of X and Y variables, and the summary statistics provide insight into their distribution and relationship to each other.
+

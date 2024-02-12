@@ -1,0 +1,42 @@
+Summary for data-1.csv:
+X Variable - Mean: 8.71769618641382, Std: 12.094586936598956, Min: -22.635877790008944, Max: 35.23705548785129
+Y Variable - Mean: 12.522874034702584, Std: 6.606680770370137, Min: -2.565087832693213, Max: 27.38415261152477
+Correlation Coefficient (X, Y): 0.9503256954375483
+
+data-1.csv contains data points of X and Y variables, and the summary statistics provide insights into their distribution and relationship.
+
+Summary for data-2.csv:
+X Variable - Mean: -0.7107871267159572, Std: 11.424031427941332, Min: -33.2711130771198, Max: 27.6470003722073
+Y Variable - Mean: -0.7489869764497991, Std: 6.226549791205469, Min: -18.621803760419063, Max: 14.14731499231748
+Correlation Coefficient (X, Y): 0.9551531665750373
+
+One sentence description: data-2.csv contains data points of X and Y variables, and the summary statistics provide insights into their distribution and relationship.
+
+Summary for data-3.csv:
+X Variable - Mean: 0.9689074904200939, Std: 2.2318288211623565, Min: -2.4490643296742807, Max: 4.51888491755363
+Y Variable - Mean: 8.508535236641327, Std: 1.1473837107336815, Min: 6.641734490391763, Max: 10.551871022804317
+Correlation Coefficient (X, Y): 0.9819372646760661
+
+One sentence description: data-3.csv contains data points of X and Y variables, and the summary statistics provide insights into their distribution and relationship.
+
+Summary for data-4.csv:
+X Variable - Mean: 49.90508614830509, Std: 28.38755430203193, Min: 0.0, Max: 87.3767
+Y Variable - Mean: 18.553836525423726, Std: 16.475637541936198, Min: 0.0, Max: 44.56504
+Correlation Coefficient (X, Y): -0.08119306735490815
+
+One sentence description: data-4.csv contains data points of X and Y variables, and the summary statistics provide insights into their distribution and relationship.
+
+Summary for data-5.csv:
+X Variable - Mean: 49.90999357843095, Std: 28.378981284825976, Min: 4.337892453674525, Max: 91.0528633396976
+Y Variable - Mean: 18.555524937729086, Std: 16.470559057583237, Min: 0.0554975075811517, Max: 49.93419703633311
+Correlation Coefficient (X, Y): -0.08823598983058888
+
+One sentence description: data-5.csv contains data points of X and Y variables, and the summary statistics provide insights into their distribution and relationship.
+
+Summary for data-6.csv:
+X Variable - Mean: 7.21615517960992, Std: 11.861841302343016, Min: -24.33382075234097, Max: 35.402138910929
+Y Variable - Mean: 7.602215028237295, Std: 11.70541274804915, Min: -22.9563569970746, Max: 36.07987403078143
+Correlation Coefficient (X, Y): 0.9350685662094906
+
+One sentence description: data-6.csv contains data points of X and Y variables, and the summary statistics provide insights into their distribution and relationship.
+
