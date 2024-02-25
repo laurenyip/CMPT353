@@ -21,27 +21,32 @@ OUTPUT_TEMPLATE = (
 
 def main():
     reddit_counts = sys.argv[1]
-
+    print(reddit_counts)
     #student's t-test - get a p-value
     
     # Read data from the provided file
-    counts = pd.read_json(sys.argv[1], lines=True)
+    counts = pd.read_json(reddit_counts, lines=True)
 
     # Filter data for the specified conditions
     reddit_data = counts[(counts['date'].dt.year.isin([2012, 2013])) & (counts['subreddit'] == '/r/canada')]
-
+    print(reddit_data)
     # Separate data into weekdays and weekends
     weekdays_data = reddit_data[reddit_data['date'].dt.weekday < 5]['comment_count']
     weekends_data = reddit_data[reddit_data['date'].dt.weekday >= 5]['comment_count']
 
-    
+    print(weekdays_data)
+    print(weekends_data)
+
+    # Perform a t-test
+    tr_stat, p_val = stats.ttest_ind(weekdays_data, weekends_data)
+
+    print(tr_stat, p_val)
+
+    """
     # Check if there are enough samples for statistical tests
     if len(weekdays_data) < 8 or len(weekends_data) < 8:
         print("Insufficient data for statistical tests.")
         sys.exit(1)
-
-    # Perform a t-test
-    t_statistic, initial_ttest_p = stats.ttest_ind(weekdays_data, weekends_data)
 
     # Check for normality using normaltest
     _, initial_weekday_normality_p = stats.normaltest(weekdays_data)
@@ -109,7 +114,7 @@ def main():
         weekly_ttest_p=0,
         utest_p=0,
     ))
-
+    """
 
 if __name__ == '__main__':
     main()
