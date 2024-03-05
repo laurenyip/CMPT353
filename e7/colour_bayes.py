@@ -85,13 +85,13 @@ def main(infile):
     model_rgb.fit(X_train, y_train)
     
     # TODO: print model_rgb's accuracy score
-    print(model_rgb.score(X_test, y_test))
+    print("1st Accuracy Score: " + str(model_rgb.score(X_test, y_test)))
 
     # build model_lab to predict y from X by converting to LAB colour first.
     model_lab = make_pipeline(FunctionTransformer(rgb2lab),GaussianNB())
     model_lab.fit(X_train, y_train)
     # print model_lab's accuracy score
-    print(model_lab.score(X_test, y_test))
+    print("2nd Accuracy Score: " + str(model_lab.score(X_test, y_test)))
     
     plot_predictions(model_rgb)
     plt.savefig('predictions_rgb.png')
