@@ -5,7 +5,7 @@ from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
 data = pd.read_csv("data.csv")
 
-print(" sorting (speed)    Mean") 
+print("sorting method    Mean") 
 print(data.describe().loc['mean',:].sort_values().to_string())
 
 anova = stats.f_oneway(data['qs1'], data['qs2'], data['qs3'], data['qs4'], data['qs5'], data['merge1'], data['partition_sort'])
@@ -17,4 +17,5 @@ posthoc = pairwise_tukeyhsd(
     alpha=0.05)
 
 fig = posthoc.plot_simultaneous()
+print(posthoc)
 fig.savefig('tukey_hsd_plot.png')

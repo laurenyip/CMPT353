@@ -15,7 +15,7 @@ OUTPUT_TEMPLATE = (
     
 def ab_testing_analysis(data):
     
-    #filter to seprate odd and even uid 
+    #filter to separate odd and even uid 
     #src: https://www.geeksforgeeks.org/split-pandas-dataframe-by-column-value/
     #filter to separate odd and even uid 
     filter_even = data['uid'] % 2 == 0
