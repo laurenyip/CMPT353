@@ -36,7 +36,8 @@ print("Score :", round(model.score(X_test, Y_test), 3))
 
 
 df = pd.DataFrame({'truth': Y_test, 'prediction': model.predict(X_test)})
-#print(df[df['truth'] != df['prediction']])
+
+# print(df[df['truth'] != df['prediction']])
 
 # output format: one prediction per line
 
