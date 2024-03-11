@@ -85,11 +85,11 @@ def main():
     X_train, X_valid, y_train, y_valid = train_test_split(X, y)
 
     # TODO: create some models
-    # build/train bayes_rgb_model to predict using GaussianNB classifer
+    # build/train bayes_rgb_model to predict using the GaussianNB classifier on training set
     bayes_rgb_model = GaussianNB()
     bayes_rgb_model.fit(X_train, y_train)
     
-    # build/train model_lab to predict by converting to LAB colour first then GaussianNB classifer
+    # build/train model_lab to predict by using pipeline: converting to LAB colour first then GaussianNB classifier
     bayes_convert_model = make_pipeline(FunctionTransformer(rgb2lab), GaussianNB())
     bayes_convert_model.fit(X_train, y_train)
     
@@ -97,16 +97,16 @@ def main():
     knn_rgb_model = KNeighborsClassifier(n_neighbors=10)
     knn_rgb_model.fit(X_train, y_train)
     
-    # build/train bayes_rgb_model to predict by converting to LAB colour first, then using the kNearestNeighbor classifier
-    knn_convert_model = make_pipeline(FunctionTransformer(rgb2lab),KNeighborsClassifier(n_neighbors=10))
+    # build/train bayes_rgb_model to predict by using pipeline: converting to LAB colour first, then using the kNearestNeighbor classifier
+    knn_convert_model = make_pipeline(FunctionTransformer(rgb2lab), KNeighborsClassifier(n_neighbors=10))
     knn_convert_model.fit(X_train, y_train)
     
     # build/train bayes_rgb_model to predict using the RandomForest classifier
     rf_rgb_model = RandomForestClassifier(n_estimators=400, min_samples_leaf=5)
     rf_rgb_model.fit(X_train, y_train)
     
-    # build/train bayes_rgb_model to predict by converting to LAB colour first, then using the RandomForest classifier
-    rf_convert_model = make_pipeline(FunctionTransformer(rgb2lab),RandomForestClassifier(n_estimators=400, min_samples_leaf=5))
+    # build/train bayes_rgb_model to predict by using pipeline: converting to LAB colour first, then using the RandomForest classifier
+    rf_convert_model = make_pipeline(FunctionTransformer(rgb2lab), RandomForestClassifier(n_estimators=400, min_samples_leaf=5))
     rf_convert_model.fit(X_train, y_train)
 
 
