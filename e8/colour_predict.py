@@ -87,27 +87,27 @@ def main():
     # TODO: create some models
     # build/train bayes_rgb_model to predict using the GaussianNB classifier on training set
     bayes_rgb_model = GaussianNB()
-    bayes_rgb_model.fit(X_train, y_train)
+   
     
     # build/train model_lab to predict by using pipeline: converting to LAB colour first then GaussianNB classifier
-    bayes_convert_model = make_pipeline(FunctionTransformer(rgb2lab), GaussianNB())
-    bayes_convert_model.fit(X_train, y_train)
+    bayes_convert_model = make_pipeline(FunctionTransformer(rgb2lab, validate=True), GaussianNB())
+    
     
     # build/train bayes_rgb_model to predict using the kNearestNeighbor classifier
     knn_rgb_model = KNeighborsClassifier(n_neighbors=10)
-    knn_rgb_model.fit(X_train, y_train)
+   
     
     # build/train bayes_rgb_model to predict by using pipeline: converting to LAB colour first, then using the kNearestNeighbor classifier
-    knn_convert_model = make_pipeline(FunctionTransformer(rgb2lab), KNeighborsClassifier(n_neighbors=10))
-    knn_convert_model.fit(X_train, y_train)
+    knn_convert_model = make_pipeline(FunctionTransformer(rgb2lab, validate=True), KNeighborsClassifier(n_neighbors=10))
+
     
     # build/train bayes_rgb_model to predict using the RandomForest classifier
-    rf_rgb_model = RandomForestClassifier(n_estimators=400, min_samples_leaf=5)
-    rf_rgb_model.fit(X_train, y_train)
+    rf_rgb_model = RandomForestClassifier(n_estimators=400, max_depth=10, min_samples_leaf=5)
+   
     
     # build/train bayes_rgb_model to predict by using pipeline: converting to LAB colour first, then using the RandomForest classifier
-    rf_convert_model = make_pipeline(FunctionTransformer(rgb2lab), RandomForestClassifier(n_estimators=400, min_samples_leaf=5))
-    rf_convert_model.fit(X_train, y_train)
+    rf_convert_model = make_pipeline(FunctionTransformer(rgb2lab, validate=True), RandomForestClassifier(n_estimators=400, min_samples_leaf=5))
+  
 
 
     # train each model and output image of predictions

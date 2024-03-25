@@ -3,7 +3,7 @@ Do you have any theory about why RGB/LAB/HSV worked better for different models?
 
 I think rf_convert_model was the best for the colour prediction task. We converted to LAB first then used the RandomForest classifier.
 My theory is that since the LAB colour is designed to be more perceptually uniform than RGB or HSV, it might improve the model's 
-ability to distinguish subtle differences between colours. combines multiple decision trees to make predictions. The RandomForest
+ability to distinguish subtle differences between colours, combines multiple decision trees to make predictions. The RandomForest
 classifier is robust, handles complex relationships well, and is less prone to overfitting, making it work well together with LAB.
 
 
@@ -12,4 +12,4 @@ Do you feel like the model is making reasonable mistakes? Can you think of any w
 add to make better predictions?
 
 I think the mistakes are fairly reasonable, since the truth and prediction are often in the same province or state, or just geographically
-close as in Seattle/Victoria. Some weather features that we could look at are rain and temperature low.
+close as in Seattle/Portland. Some weather features that we could look at are wind speed and direction, and humidity, UV index, visibility, and air pressure.

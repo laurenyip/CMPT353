@@ -18,7 +18,7 @@ def get_pca(X):
     """
     flatten_model = make_pipeline(
         MinMaxScaler(),
-        PCA(n_components=2)  # Apply PCA to reduce dimensions to 2
+        PCA(2)  # Apply PCA to reduce dimensions to 2
     )
     X2 = flatten_model.fit_transform(X)
     assert X2.shape == (X.shape[0], 2)
@@ -31,7 +31,6 @@ def get_clusters(X):
     """
     model = make_pipeline(
         # TODO
-        StandardScaler(),  # Standardize the features
         KMeans(n_clusters=10)  # Apply KMeans clustering
     )
     model.fit(X)

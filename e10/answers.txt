@@ -1,0 +1,44 @@
+1. How long did your reddit_averages.py take with 
+(1) the reddit-0 data set and effectively no work, (2) no schema specified and not caching (on reddit-2 for this and the rest), 
+(3) with a schema but not caching, (4) with both a schema and caching the twice-used DataFrame? [The reddit-0 test is effectively measuring 
+the Spark startup time, so we can see how long it takes to do the actual work on reddit-2 in the best/worst cases.]
+
+reddit-0(for test, not really doing any work): 
+real	0m6.374s
+user	0m16.129s
+sys	0m1.747s
+
+reddit-2(no schema, no cache):
+real	0m25.904s
+user	0m30.948s
+sys	0m2.059s
+
+reddit-2(with schema, no cache):
+real	0m18.734s
+user	0m25.885s
+sys	0m1.737s
+
+reddit-2(with schema, with cache):
+real	0m16.026s
+user	0m35.164s
+sys	0m1.878s
+
+
+
+
+2. Based on the above, does it look like most of the time taken to process the reddit-2 data set is in reading the files, 
+or calculating the averages?
+
+Most of the time looks like it was taken in reading the files.
+
+
+3. Where did you use .cache() in your wikipedia_popular.py? [Hint: the answer had better be “once”… but where?]
+
+I used .cache() after completing my filtering steps, before the groupby() function. The filtering is necessary for many of the 
+subsequent steps, so using the cache() before the groupby() and join() will improve the running time by reducing unecessary operations.
+
+
+
+
+
+
