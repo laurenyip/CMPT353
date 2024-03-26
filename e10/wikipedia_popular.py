@@ -9,6 +9,9 @@ spark.sparkContext.setLogLevel('WARN')
 assert sys.version_info >= (3, 8) # make sure we have Python 3.8+
 assert spark.version >= '3.2' # make sure we have Spark 3.2+
 
+# spark-submit --master local[1] wikipedia_popular.py pagecounts-0 output-score
+
+
 
 pages_schema = types.StructType([
     types.StructField('language', types.StringType()),

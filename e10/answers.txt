@@ -4,25 +4,24 @@
 the Spark startup time, so we can see how long it takes to do the actual work on reddit-2 in the best/worst cases.]
 
 reddit-0(for test, not really doing any work): 
-real	0m6.374s
-user	0m16.129s
-sys	0m1.747s
+real    0m20.238s
+user    0m56.353s
+sys     0m6.418s
 
 reddit-2(no schema, no cache):
-real	0m25.904s
-user	0m30.948s
-sys	0m2.059s
+real    0m22.793s
+user    0m49.446s
+sys     0m5.212s
 
 reddit-2(with schema, no cache):
-real	0m18.734s
-user	0m25.885s
-sys	0m1.737s
+real    0m17.051s
+user    0m39.266s
+sys     0m4.390s
 
 reddit-2(with schema, with cache):
-real	0m16.026s
-user	0m35.164s
-sys	0m1.878s
-
+real    0m23.489s
+user    1m4.471s
+sys     0m6.184s
 
 
 
