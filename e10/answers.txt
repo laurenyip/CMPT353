@@ -4,25 +4,24 @@
 the Spark startup time, so we can see how long it takes to do the actual work on reddit-2 in the best/worst cases.]
 
 reddit-0(for test, not really doing any work): 
-real    0m20.238s
-user    0m56.353s
-sys     0m6.418s
+real    0m0.087s
+user    0m0.061s
+sys     0m0.023s
 
 reddit-2(no schema, no cache):
-real    0m22.793s
-user    0m49.446s
-sys     0m5.212s
+real    0m0.089s
+user    0m0.049s
+sys     0m0.022s
 
 reddit-2(with schema, no cache):
-real    0m17.051s
-user    0m39.266s
-sys     0m4.390s
+real    0m0.082s
+user    0m0.065s
+sys     0m0.014s
 
 reddit-2(with schema, with cache):
-real    0m23.489s
-user    1m4.471s
-sys     0m6.184s
-
+real    0m0.075s
+user    0m0.056s
+sys     0m0.012s
 
 
 2. Based on the above, does it look like most of the time taken to process the reddit-2 data set is in reading the files, 
