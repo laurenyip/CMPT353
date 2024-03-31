@@ -1,0 +1,16 @@
+1. In your reddit_relative.py, what intermediate results did you .cache()? Briefly describe what would 
+have happened if you hadn't used .cache() anywhere. (No need to time it, unless you really want to.)
+
+I cached the average score for each subreddit, before the .join() function. If I had not used the cache, the program would have 
+taken a bit longer to run, the time would have been spent reading the df for information.
+
+
+2. How did marking DataFrames for broadcast affect the running time of the “best author” program above?
+
+According to the results above, the run time differed between using broadcast() and not using broadcast(), the DataFrame for broadcasting can improve the run time.
+
+
+
+
+
+
