@@ -66,8 +66,6 @@ def main(in_directory, out_directory):
 if __name__=='__main__':
     in_directory = sys.argv[1]
     out_directory = sys.argv[2]
-    spark = SparkSession.builder.appName('Reddit Relative Scores').getOrCreate()
-    assert spark.version >= '3.2' # make sure we have Spark 3.2+
-    spark.sparkContext.setLogLevel('WARN')
+    
 
     main(in_directory, out_directory)
