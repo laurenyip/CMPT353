@@ -2,12 +2,27 @@
 have happened if you hadn't used .cache() anywhere. (No need to time it, unless you really want to.)
 
 I cached the average score for each subreddit, before the .join() function. If I had not used the cache, the program would have 
-taken a bit longer to run, the time would have been spent reading the df for information.
+taken a bit longer to run, the time would have been spent reading the df for information again.
 
 
 2. How did marking DataFrames for broadcast affect the running time of the “best author” program above?
 
-According to the results above, the run time differed between using broadcast() and not using broadcast(), the DataFrame for broadcasting can improve the run time.
+with broadcast: 
+
+real    0m11.364s
+user    0m10.000s
+sys     0m2.844s
+
+without broadcast:
+
+real    0m27.731s
+user    3m8.266s
+sys     0m14.219s
+
+
+According to the results above, the run time differed between using broadcast() and not using broadcast().
+Broadcasting improves/shortens the runtime of the best authors program.
+
 
 
 

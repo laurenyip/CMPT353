@@ -1,4 +1,5 @@
 import sys
+import time
 from pyspark.sql import SparkSession, functions, types
 
 spark = SparkSession.builder.appName('reddit relative scores').getOrCreate()
@@ -43,10 +44,14 @@ def main(in_directory, out_directory):
     #Exclude any subreddits with average score ≤0.
     avg = avg.filter(avg['avg(score)'] > 0)
     avg = avg.cache()
+
+    # Broadcast the DataFrame containing average scores
+    #broadcast_avg = spark.sparkContext.broadcast(avg)
     
     
     #Join the average score to the collection of all comments. Divide to get the relative score.
     with_cmt = comments.join(avg, on='subreddit')
+    #with_cmt = comments.join(broadcast_avg.value, on='subreddit')
     with_cmt = with_cmt.withColumn('rel_score', with_cmt['score'] / with_cmt['avg(score)'])
     
     #Determine the max relative score for each subreddit.
@@ -58,9 +63,9 @@ def main(in_directory, out_directory):
     bestAuthor = with_cmt.join(max_relative_scores, ['subreddit', 'rel_score'])
     bestAuthor = bestAuthor.select('subreddit', 'author', 'rel_score')
     
-    bestAuthor.write.json(out_directory, mode='overwrite')
+    #bestAuthor.write.json(out_directory, mode='overwrite')
 
-    #best_author.write.json(out_directory, mode='overwrite')
+    bestAuthor.coalesce(1).write.json(out_directory, mode='overwrite')
 
 
 if __name__=='__main__':
@@ -69,3 +74,8 @@ if __name__=='__main__':
     
 
     main(in_directory, out_directory)
+
+
+    # spark-submit --conf spark.dynamicAllocation.enabled=false --num-executors=8 reddit_relative.py reddit-3 output
+
+    # time spark-submit reddit_relative.py reddit-3 output_directory  --conf spark.sql.autoBroadcastJoinThreshold=-1

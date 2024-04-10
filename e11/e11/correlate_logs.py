@@ -80,3 +80,5 @@ if __name__=='__main__':
     spark.sparkContext.setLogLevel('WARN')
 
     main(in_directory)
+
+    # spark-submit correlate_logs.py nasa-logs-1 output_nasa
